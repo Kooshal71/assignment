@@ -5,7 +5,7 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 async function main() {
-  if (process.env.NODE_ENV === "development") {
+  if (process.env.NODE_ENV === "production") {
     if (window.location.pathname === "/assignment") {
       window.location.pathname = "/assignment/";
       return;

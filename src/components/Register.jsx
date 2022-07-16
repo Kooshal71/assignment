@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import "../styles.css";
 import bigboy from "../images/BigBoy.png";
+import messages from "../images/message.png";
+import invisible from "../images/invisible.png";
+import user from "../images/user.png";
+import lock from "../images/padlock.png";
 import { Link } from "react-router-dom";
 export default function Register() {
   const [credentials, setCredentials] = useState({
@@ -50,6 +54,7 @@ export default function Register() {
           <label htmlFor="email">Email</label>
           <br />
           <div className="inputs">
+            <img src={messages} alt="" style={{ marginRight: "10px" }} />
             <input
               type="email"
               name="email"
@@ -63,6 +68,7 @@ export default function Register() {
           <label htmlFor="name">Username</label>
           <br />
           <div className="inputs">
+            <img src={user} alt="" style={{ marginRight: "10px" }} />
             <input
               type="text"
               name="name"
@@ -76,6 +82,7 @@ export default function Register() {
           <label htmlFor="password">Password</label>
           <br />
           <div className="inputs">
+            <img src={lock} alt="" style={{ marginRight: "10px" }} />
             <input
               type="password"
               name="password"
@@ -84,11 +91,13 @@ export default function Register() {
               onChange={handleChange}
               value={credentials.password}
             />
+            <img src={invisible} alt="" style={{ marginLeft: "65px" }} />
           </div>
           <br />
           <label htmlFor="cpassword">Confirm Password</label>
           <br />
           <div className="inputs">
+            <img src={lock} alt="" style={{ marginRight: "10px" }} />
             <input
               type="password"
               name="cpassword"
@@ -97,6 +106,7 @@ export default function Register() {
               onChange={handleChange}
               value={credentials.cpassword}
             />
+            <img src={invisible} alt="" style={{ marginLeft: "65px" }} />
           </div>
           <button className="submit">Register</button>
         </form>

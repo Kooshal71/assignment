@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "../styles.css";
 import bigboy from "../images/BigBoy.png";
+import messages from "../images/message.png";
 export default function Reset() {
   const [email, setEmail] = useState("");
   const handleChange = (e) => {
@@ -44,6 +45,7 @@ export default function Reset() {
           <label htmlFor="email">Email</label>
           <br />
           <div className="inputs">
+            <img src={messages} alt="" style={{ marginRight: "10px" }} />
             <input
               type="email"
               name="email"

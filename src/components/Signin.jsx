@@ -5,6 +5,9 @@ import facebook from "../images/Facebook.png";
 import apple from "../images/Apple.png";
 import google from "../images/google.png";
 import bigboy from "../images/BigBoy.png";
+import messages from "../images/message.png";
+import invisible from "../images/invisible.png";
+import lock from "../images/padlock.png";
 export default function Signin() {
   const [credentials, setCredentials] = useState({
     email: "",
@@ -47,6 +50,7 @@ export default function Signin() {
           <label htmlFor="email">Email</label>
           <br />
           <div className="inputs">
+            <img src={messages} alt="" style={{ marginRight: "10px" }} />
             <input
               type="email"
               name="email"
@@ -60,6 +64,7 @@ export default function Signin() {
           <label htmlFor="password">Password</label>
           <br />
           <div className="inputs">
+            <img src={lock} alt="" style={{ marginRight: "10px" }} />
             <input
               type="password"
               name="password"
@@ -68,6 +73,7 @@ export default function Signin() {
               value={credentials.password}
               onChange={handleChange}
             />
+            <img src={invisible} alt="" style={{ marginLeft: "65px" }} />
           </div>
           <br />
 

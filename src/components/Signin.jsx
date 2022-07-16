@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "../styles.css";
 import { Link } from "react-router-dom";
 import facebook from "../images/Facebook.png";
@@ -6,6 +6,28 @@ import apple from "../images/Apple.png";
 import google from "../images/google.png";
 import bigboy from "../images/BigBoy.png";
 export default function Signin() {
+  const [credentials, setCredentials] = useState({
+    email: "",
+    password: "",
+  });
+  const handleChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+    // console.log(credentials);
+  };
+  const host = "http://localhost:5000";
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const response = await fetch(`${host}/api/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+  };
   return (
     <div>
       <p className="logo">Your Logo</p>
@@ -15,29 +37,36 @@ export default function Signin() {
         <div className="text">
           <p style={{ margin: 0 }}>If you don't have an account register</p>
           <p style={{ marginTop: "6px" }}>
-            You can <Link to="/register">Register here !</Link>
+            You can{" "}
+            <Link to="/register" style={{ marginLeft: "5px" }}>
+              Register here !
+            </Link>
           </p>
         </div>
-        <form action="POST">
-          <label htmlFor="mail">Email</label>
+        <form onSubmit={handleSubmit}>
+          <label htmlFor="email">Email</label>
           <br />
           <div className="inputs">
             <input
               type="email"
-              name="mail"
-              id="mail"
+              name="email"
+              id="email"
               placeholder="Enter your email address"
+              onChange={handleChange}
+              value={credentials.email}
             />
           </div>
           <br />
-          <label htmlFor="pass">Password</label>
+          <label htmlFor="password">Password</label>
           <br />
           <div className="inputs">
             <input
               type="password"
-              name="pass"
-              id="pass"
+              name="password"
+              id="password"
               placeholder="Enter Your password"
+              value={credentials.password}
+              onChange={handleChange}
             />
           </div>
           <br />
@@ -50,7 +79,9 @@ export default function Signin() {
             style={{ display: "inline-block", marginLeft: "200px" }}
             className="bottom"
           >
-            <Link to="/reset_password">Forgot Password?</Link>
+            <Link to="/reset_password" style={{ color: "#4D4D4D" }}>
+              Forgot Password?
+            </Link>
           </p>
           <br />
           <button className="submit">Login</button>

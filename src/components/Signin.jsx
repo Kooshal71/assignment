@@ -1,6 +1,6 @@
 import React from "react";
 import "../styles.css";
-
+import { Link } from "react-router-dom";
 import facebook from "../images/Facebook.png";
 import apple from "../images/Apple.png";
 import google from "../images/google.png";
@@ -15,7 +15,7 @@ export default function Signin() {
         <div className="text">
           <p style={{ margin: 0 }}>If you don't have an account register</p>
           <p style={{ marginTop: "6px" }}>
-            You can <a href="/register">Register here !</a>
+            You can <Link to="/register">Register here !</Link>
           </p>
         </div>
         <form action="POST">
@@ -50,7 +50,7 @@ export default function Signin() {
             style={{ display: "inline-block", marginLeft: "200px" }}
             className="bottom"
           >
-            Forgot Password?
+            <Link to="/reset_password">Forgot Password?</Link>
           </p>
           <br />
           <button className="submit">Login</button>

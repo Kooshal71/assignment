@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles.css";
 import bigboy from "../images/BigBoy.png";
+import { Link } from "react-router-dom";
 export default function Register() {
   return (
     <div>
@@ -11,7 +12,7 @@ export default function Register() {
         <div className="text">
           <p style={{ margin: 0 }}>If you already have an account register</p>
           <p style={{ marginTop: "6px" }}>
-            You can <a href="/login">Login Here !</a>
+            You can <Link to="/login">Login Here !</Link>
           </p>
         </div>
         <form action="POST">
